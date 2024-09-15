@@ -1,0 +1,29 @@
+# Función para calcular el promedio de temperatura por ciudad
+def calcular_promedio_temperaturas(temperaturas):
+    """
+    Calcula el promedio de temperaturas para una ciudad durante varias semanas.
+
+    :param temperaturas: Lista de listas donde cada sublista contiene las temperaturas diarias
+                         durante varias semanas.
+                         Ejemplo: [[semana1], [semana2], ...]
+    :return: El promedio de temperaturas.
+    """
+    total_temperatura = 0
+    dias = 0
+    for semana in temperaturas:
+        total_temperatura += sum(semana)
+        dias += len(semana)
+    promedio = total_temperatura / dias
+    return promedio
+
+# Datos de ejemplo para Santa Elena, Ecuador: temperaturas diarias durante 4 semanas
+temperaturas_santa_elena = [
+    [30, 31, 32, 30, 29, 30, 31],  # Semana 1
+    [32, 33, 31, 30, 29, 28, 29],  # Semana 2
+    [31, 30, 29, 28, 27, 26, 27],  # Semana 3
+    [30, 31, 32, 33, 34, 33, 32]   # Semana 4
+]
+
+# Calcular el promedio de temperaturas para Santa Elena
+promedio_santa_elena = calcular_promedio_temperaturas(temperaturas_santa_elena)
+print("Promedio de temperaturas en Santa Elena, Ecuador:", promedio_santa_elena)
